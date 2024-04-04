@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Title</title>
+    <style>
+         table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th, td {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+        th {
+            background-color: #f2f2f2;
+        }   
+    </style>
+</head>
+
+<body>
+   <form>
+    <div><label for="jobsearch">Job Search</label>
+    <select type="text" placeholder="Job Titles/Keywords" id="jobsearch"style="margin-top:15px" name="jobsearch" required>
+      <option value="Python Developer">Python Developer</option>
+      <option value="Web Developer">Web Developer</option>
+      <option value="Java Developer">Java Developer</option>
+      <option value="Software Engineer">Software Engineer</option>
+      <option value="Cloud Engineer">Cloud Engineer</option>
+    </select>
+      <br>
+    <label for="loc">Enter your Location </label>
+    <select type="text" placeholder="City or State" id="loc" style="margin-top:15px" name="loc" required>
+    <option value="Mumbai">Mumbai</option>
+    <option value="Pune">Pune</option>
+    <option value="Banglore">Banglore</option>
+    <option value="New_delhi">New Delhi</option>
+    </select>
+    <br>
+    <label for="jt">Job Type</label>
+    <select type="text" placeholder="Enter Job Type" id="jt" style="margin-top:15px" name="jt" required>
+    <option value="parttime">Part-Time</option>
+    <option value="fulltime">Full-Time</option>
+    <option value="intern">Intern</option>
+    <option value="contractor">Contractor</option>
+    </select>
+    </div>
+    <button id="find" type="submit" style="background-color: rgb(7, 158, 234);padding: 5px;margin-top:15px" >Find Jobs</button>
+    <!-- <script src="job.js" type="module"></script> -->
+    
+    <table id="jobTable">
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Company</th>
+            <th>Location</th>
+            <th>Job Type</th>
+            <th>Date Posted</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Jobs will be dynamically added here -->
+        </tbody>
+      </table>
+      
+      
+    <script src="job.js" type="module"></script> 
+</form>
+</body>
+</html>
