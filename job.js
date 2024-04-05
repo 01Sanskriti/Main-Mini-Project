@@ -1,4 +1,3 @@
-
 const options = {
 	method: 'GET',
 	headers: {
@@ -46,6 +45,7 @@ find.onclick = async function(e){
             <td>${job.location}</td>
             <td>${job.Jobtype}</td>
             <td>${job.datePosted}</td>
+            <a href="composemail.html"><button>Compose Mail</button></a>  
           `;
           tableBody.appendChild(row);
         });
@@ -54,4 +54,6 @@ find.onclick = async function(e){
       }
     
 }
+
+
     
