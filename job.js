@@ -45,7 +45,7 @@ find.onclick = async function(e){
             <td>${job.location}</td>
             <td>${job.Jobtype}</td>
             <td>${job.datePosted}</td>
-            <td><a href="composemail.html"><button>Compose Mail</button></a></td>
+            <td><a href="composemail.html?company_name=${job.company}"><button>Compose Mail</button></a></td>
           `;
           tableBody.appendChild(row);
         });

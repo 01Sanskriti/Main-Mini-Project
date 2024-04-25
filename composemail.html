@@ -216,6 +216,18 @@ table, td { color: #000000; } #u_body a { color: #0000ee; text-decoration: under
     <script type="module">
             import { GoogleGenerativeAI } from "@google/generative-ai";
 
+            // Get the URL string
+const urlString = window.location.href;
+
+// Create a URL object from the URL string
+const url = new URL(urlString);
+
+// Get the search parameters from the URL
+const searchParams = url.searchParams;
+
+// Get a specific parameter value by its name
+const companyName = searchParams.get('company_name');
+
       // Access your API key as an environment variable (see "Set up your API key" above)
       
       const genAI = new GoogleGenerativeAI("AIzaSyCWYXbgFsFeDjdZm-j4vfLvqnJHvxa-WCQ");
@@ -227,7 +239,7 @@ table, td { color: #000000; } #u_body a { color: #0000ee; text-decoration: under
         // For text-only input, use the gemini-pro model
         const model = genAI.getGenerativeModel({ model: "gemini-pro"});
 
-        const prompt = "preprompt:detail: name:sudesh pawar, education: btech engineering, applying for position: Web Developer Position generate email for it"
+        const prompt = "preprompt:detail: name:sudesh pawar,apply to company: "+companyName+" , education: btech engineering, applying for position: Web Developer Position generate email for it"
 
         const result = await model.generateContent(prompt);
         const response = await result.response;
