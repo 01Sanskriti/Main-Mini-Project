@@ -167,10 +167,23 @@ table, td { color: #000000; } #u_body a { color: #0000ee; text-decoration: under
     <tr>
       <td class="v-container-padding-padding" style="overflow-wrap:break-word;word-break:break-word;padding:10px 43px;font-family:'Raleway',sans-serif;" align="left">
         
-  <div class="v-text-align v-font-size" style="font-size: 14px; line-height: 160%; text-align: left; word-wrap: break-word;">   
+  <div class="v-text-align v-font-size" style="font-size: 14px; line-height: 160%; text-align: left; word-wrap: break-word;"> 
+    
+    <img src="./images/loading__.gif" id="loading_gif" alt="" style="width: 50vh;">
 
     <!-- id="generated-text" -->
-    <p  style="line-height: 160%;"> <br>
+
+    <style>
+      pre {
+          width: 55vh; /* Set the desired width */
+          overflow-x: auto; /* Enable horizontal scrolling if content overflows */
+          white-space: pre-wrap; /* Preserve whitespace */
+      }
+  </style>
+
+    <pre  style="line-height: 160%; " id="generated_text"></pre>
+
+    <p  style="line-height: 160%; display:none"> <br>
         Subject: Sudesh Pawar - Web Developer Applying for Full stack developer  <br> <br>
         Dear sir , <br> <br>
         
@@ -191,7 +204,43 @@ table, td { color: #000000; } #u_body a { color: #0000ee; text-decoration: under
         <br><br>
         Sudesh Pawar
     </p>
-    <script src="mail.js"></script>
+
+    <script type="importmap">
+      {
+        "imports": {
+          "@google/generative-ai": "https://esm.run/@google/generative-ai"
+        }
+      }
+    </script>
+
+    <script type="module">
+            import { GoogleGenerativeAI } from "@google/generative-ai";
+
+      // Access your API key as an environment variable (see "Set up your API key" above)
+      
+      const genAI = new GoogleGenerativeAI("AIzaSyCWYXbgFsFeDjdZm-j4vfLvqnJHvxa-WCQ");
+
+      let generated_text = document.getElementById("generated_text");
+      let loading_gif = document.getElementById("loading_gif");
+
+      async function run() {
+        // For text-only input, use the gemini-pro model
+        const model = genAI.getGenerativeModel({ model: "gemini-pro"});
+
+        const prompt = "preprompt:detail: name:sudesh pawar, education: btech engineering, applying for position: Web Developer Position generate email for it"
+
+        const result = await model.generateContent(prompt);
+        const response = await result.response;
+        const text = response.text();
+        console.log(text);
+        generated_text.innerHTML = text;      
+        loading_gif.style.display = "none";
+      }
+
+      run();
+    </script>
+
+    <!-- <script src="mail.js"></script> -->
     <!-- <p style="line-height: 160%;">Dear [Name],</p>
 <p style="line-height: 160%;"> </p>
 <p style="line-height: 160%;">Time is running out! As a valued member of the Unlayer community, we're excited to offer you exclusive benefits that you won't want to miss out on.</p>
