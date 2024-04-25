@@ -236,17 +236,21 @@ const companyName = searchParams.get('company_name');
       let loading_gif = document.getElementById("loading_gif");
 
       async function run() {
-        // For text-only input, use the gemini-pro model
-        const model = genAI.getGenerativeModel({ model: "gemini-pro"});
+       try {
+         // For text-only input, use the gemini-pro model
+         const model = genAI.getGenerativeModel({ model: "gemini-pro"});
 
-        const prompt = "preprompt:detail: name:sudesh pawar,apply to company: "+companyName+" , education: btech engineering, applying for position: Web Developer Position generate email for it"
+const prompt = "preprompt:detail: name:sudesh pawar,apply to company: "+companyName+" , education: btech engineering, applying for position: Web Developer Position generate email for it"
 
-        const result = await model.generateContent(prompt);
-        const response = await result.response;
-        const text = response.text();
-        console.log(text);
-        generated_text.innerHTML = text;      
-        loading_gif.style.display = "none";
+const result = await model.generateContent(prompt);
+const response = await result.response;
+const text = response.text();
+console.log(text);
+generated_text.innerHTML = text;      
+loading_gif.style.display = "none";
+       } catch (error) {
+        run();
+       }
       }
 
       run();
