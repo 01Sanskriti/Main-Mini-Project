@@ -1,7 +1,7 @@
 const options = {
 	method: 'GET',
 	headers: {
-		'X-RapidAPI-Key': 'b8340a714dmshe57ade31e13cc53p1da6d1jsn092e557e0056',
+		'X-RapidAPI-Key': '9175aed09fmshdae6b6b0643857cp1b6163jsn10134fab33af',
 		'X-RapidAPI-Host': 'jobs-api14.p.rapidapi.com'
 	}
 };
@@ -45,7 +45,7 @@ find.onclick = async function(e){
             <td>${job.location}</td>
             <td>${job.Jobtype}</td>
             <td>${job.datePosted}</td>
-            <a href="composemail.html"><button>Compose Mail</button></a>  
+            <td><a href="composemail.html"><button>Compose Mail</button></a></td>
           `;
           tableBody.appendChild(row);
         });
